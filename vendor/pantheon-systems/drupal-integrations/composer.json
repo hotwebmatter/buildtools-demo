@@ -4,13 +4,12 @@
     "type": "project",
     "license": "MIT",
     "conflict": {
-        "drupal/core": "<8.5"
+        "drupal/core": "<8.5 || >=9"
     },
     "extra": {
         "drupal-scaffold": {
             "file-mapping": {
                 "[project-root]/.drush-lock-update": "assets/drush-lock-update",
-                "[project-root]/pantheon.upstream.yml": "assets/pantheon.upstream.yml",
                 "[web-root]/sites/default/default.services.pantheon.preproduction.yml": "assets/default.services.pantheon.preproduction.yml",
                 "[web-root]/sites/default/settings.pantheon.php": "assets/settings.pantheon.php",
                 "[web-root]/sites/default/settings.php": {
@@ -18,6 +17,11 @@
                     "path": "assets/initial.settings.php",
                     "overwrite": false
                 }
+            }
+        },
+        "patches": {
+            "drupal/core": {
+                "Correct reporting of MariaDB version": "https://www.drupal.org/files/issues/2021-05-18/3213482-9.patch"
             }
         }
     }
